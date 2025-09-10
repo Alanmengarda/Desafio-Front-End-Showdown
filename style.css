@@ -51,7 +51,11 @@ header a:hover {
     object-fit: cover;
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     filter: brightness(50%);
+=======
+    filter: brightness(30%);
+>>>>>>> 900e2e0 ("Initial commit test")
 }
 
 .container .list .list-item .content {
