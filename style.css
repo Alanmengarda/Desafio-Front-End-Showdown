@@ -5,11 +5,23 @@
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
 }
-
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
 body {
     background-color:#000;
     color:#eee;
-    font-size: 12px;
+    font-size: 13px;
+    margin: 0;         /* remove margens padrão */
+    overflow-x: hidden;
+    margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -23,22 +35,57 @@ header {
 }
 
 header a {
-    color:#eee;
+    color:#081561;
     margin-right: 40px;
     font-weight: 300;
+    font-size: 20px;
+
 }
 
+
+
+
+/* HEADER  */
+
 header a:hover {
-    color:#5cb415;
-    
+    color:#1e5ee9;
     transition: 0.5s;
 }
 
-.container {
+nav {
+  position: fixed;
+  width: 1590px;
+  max-width: 5000px;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+  padding: 60px 0;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  
+  font-size: 20px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.24);
+  color: rgba(0, 35, 122, 0.7);
+  z-index: 4;
+  align-items: center;
+  transform: translateY(-100%); /* começa escondida */
+  transition: transform 0.3s ease-in-out;
+        
+}
+nav.visivel {
+  transform: translateY(0); /* desliza para baixo e aparece */
+}
+
+.container  {
     height: 100vh;
     width: 100vw;
     margin-top: -50px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .container .list .list-item {
@@ -75,17 +122,19 @@ header a:hover {
 }
 
 .container .list .list-item .description {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    text-align: justify;
+    width: 80%;
 }
 
-.container .list .list-item .buttons {
+.container .list .list-item .buttons a {
     display: grid;
     grid-template-columns: repeat(2, 130px);
     grid-template-rows: 30px;
     margin-top: 20px;
     gap: 5px;
 }
-.container .list .list-item .buttons button {
+.container .list .list-item .buttons a button {
     border: none;
     background-color: #eee;
     letter-spacing: 3px;
@@ -94,20 +143,20 @@ header a:hover {
     text-transform: uppercase;
 }
 
-.container .list .list-item .buttons button:hover {
+.container .list .list-item .buttons a button:hover {
     background-color: transparent;
     border: 1px solid #eee;
     color: #eee;
     transition: 0.7s;
 }
 
-.container .list .list-item .buttons button:nth-child(2) {
+.container .list .list-item .buttons a button:nth-child(2) {
     background-color: transparent;
     border: 1px solid #eee;
     color: #eee;
 }
 
-.container .list .list-item .buttons button:nth-child(2):hover {
+.container .list .list-item .buttons a button:nth-child(2):hover {
     background-color: #eee;
     color: #000;
 }
@@ -121,10 +170,14 @@ header a:hover {
 }
 
 .container .thumb .thumb-item {
-width: 135px;
-height: 200px;
-position: relative;
-z-index: 3;
+    width: 135px;
+    height: 200px;
+    position: relative;
+    z-index: 3;
+}
+.container .thumb .thumb-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .container .thumb .thumb-item img {
@@ -132,13 +185,15 @@ z-index: 3;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    filter: brightness(80%);
+    filter: brightness(40%);
 }
 
 .container .thumb .content {
     position: absolute;
     bottom: 10px;
     left: 10px;
+    
+    
 }
 
 .container .arrows {
@@ -279,4 +334,747 @@ z-index: 3;
         left: 50%;
         bottom: 50px;
     }
+}
+                        /* RADIOLOGIA  */
+h1 {
+    padding-top: 7%;
+}
+.secao-radio {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img1.jpg");
+    padding-top: 7%;
+    background-size: cover;
+    
+}
+
+.secao-radio h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    
+}
+.secao-radio p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+   
+}
+
+.cartao-profissao-radio {
+  background: #282a3ad0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.titulo-secao-radiologia {
+  position:absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+
+ /* SETOR FINANCEIRO */
+
+.secao-setorFinanceiro {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img2.jpg");
+    padding-top: 7%;
+    background-size: cover;
+}   
+
+.cartao-profissao-financeiro {
+  background: #7ab9614f;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.secao-setorFinanceiro h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    
+}
+.secao-setorFinanceiro p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+}
+
+
+.titulo-secao-financeiro {
+  position:absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+ /* ENGENHARIA  */
+.secao-engenharia {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img3.jpg");
+    padding-top: 7%;
+    background-size: cover;
+}   
+
+.cartao-profissao-engenharia {
+  background: #512721ab;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.secao-engenharia h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    
+}
+.secao-engenharia p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+}
+
+.titulo-secao-engenharia {
+  position:absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+ /* ATENDIMENTO AO CLIENTE  */
+.secao-atendimentoCliente {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img4.jpg");
+    padding-top: 7%;
+    background-size: cover;
+  
+  
+}
+.cartao-profissao-atendimento {
+  background: #2e2d32a1;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.secao-atendimentoCliente h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    padding: 0.5%;
+
+    
+}
+.secao-atendimentoCliente p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+}
+.titulo-secao-atendimento {
+  position:absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+ /* DESIGNER  */
+.secao-designer  {
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img5.jpg");
+    padding-top: 7%;
+    background-size: cover;
+    
+}
+
+.secao-designer  h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    
+    
+}
+.secao-designer  p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+   
+}
+
+.cartao-profissao-designer {
+  background: #371c7096;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.titulo-secao-designer {
+  position: absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+
+ /* RECURSOS HUMANOS  */
+.secao-recursoHumano  {
+  position:absolute;
+  width: 100vw;
+  height: 100vh;
+  position: relative; /* necessário para o título absoluto */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* mantém os banners no centro */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.712)
+    ), url("./img/img6.jpg");
+    padding-top: 7%;
+    background-size: cover;
+}
+
+.secao-recursoHumano h4 {
+    font-size: 1.6rem;
+    color: #ffffff;
+    
+}
+.secao-recursos p {
+    font-weight: 300;
+    color: #ffffff;
+    text-align: justify;
+    padding: 2%;
+   
+}
+
+
+.cartao-profissao-recursos {
+  background: #0d233fa2;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  font-size: 1.2rem;
+  text-align: center;
+
+  /* Faz os cartões ficarem grandes dentro da grade */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.titulo-secao-recursos {
+  position:absolute;
+  top: 0%;  /* distância do topo */
+  left: 13%;
+  color: #ffffff;
+  width: 100%;
+  font-size: 1.7em;
+  
+}
+
+
+
+
+
+.mini-img {
+  width: 400px;   /* Largura da imagem */
+  height: auto;  /* Mantém proporção */
+  vertical-align: middle; /* Alinha com o texto */
+  margin-right: 8px; /* Espaço entre imagem e texto */
+}
+
+
+
+
+.grade-profissoes {
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* exatamente 3 colunas */
+  gap: 17px;
+  width: 90%;       /* ocupa quase a tela toda */
+  max-width: 1400px;/* limite para monitores muito grandes */
+  height: 70%;
+  
+}
+
+/* --- Cartão de Profissão --- */
+
+
+.cartao-descricao {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    /* Adicionado para alinhar o conteúdo */
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+
+.cartao-medidor {
+    margin-bottom: 1rem;
+}
+
+.medidor-titulo {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-500 */
+    margin-bottom: 0.25rem;
+}
+
+.medidor-barra-fundo {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3B82F6 0%, #10B981 50%, #EF4444 100%);
+}
+
+.medidor-nivel {
+    height: 100%;
+    border-radius: 4px;
+}
+.nivel-radiologia { width: 70%; background-color: #0e0d24; }
+.nivel-designer    { width: 60%; background-color: #db2777; }
+.nivel-atendimentoCliente { width: 80%; background-color: #4e4d49; }
+.nivel-recursos  { width: 65%; background-color: #090c97; }
+.nivel-financeiro { width: 75%; background-color: #207506; }
+.nivel-engenharia { width: 70%; background-color: #97510f; }  
+
+
+/* RODAPÉ */
+
+.rodape-principal {
+  
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1040px;
+  background: rgba(26,26,26,0.95);
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  z-index: 9999;              /* força o rodapé acima do restante */
+  padding: 0 16px;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  text-align: center;
+  
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.rodape-conteudo h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.rodape-conteudo p {
+    color: #9ca3af; /* text-gray-400 */
+    text-align: center;
+}
+
+.rodape-copyright {
+    border-top: 1px solid #374151; /* border-gray-700 */
+    margin-top: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    color: #9ca3af;
+}
+
+
+
+/* --- SIDEBAR --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px; /* compacta por padrão */
+  background-color: #080c338f;
+  padding-top: 50px;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow-x: hidden;
+  z-index: 9999;
+}
+
+.sidebar.expanded {
+  width: 210px; /* expandida */
+}
+
+.sidebar.collapsed ul {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar .toggle-btn {
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 26px;
+  margin-left: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.sidebar ul li {
+  margin: 2px 0;
+  
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: background 0.3s;
+  margin-left: 7%;
+}
+
+.sidebar ul li a:hover {
+  background-color: #333;
+  color: #2556df;
+  border-radius: 10px;
+}
+
+.contatossidebar {
+    font-size: 21px;
+    margin-left: 7%;
+    color:#10B981;
+}
+.profissaosidebar {
+    font-size: 21px;
+    margin-left: 7%;
+    color:#10B981;
+}
+
+.cursossidebar {
+    font-size: 21px;
+    margin-left: 7%;
+    color:#10B981;
+}
+
+
+
+
+
+
+/* ===== Seção cursos ===== */
+.secao-trabalho {
+    padding: 4rem 2rem;
+    background-color: #ffffff41;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.904),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.884)
+    ), url("./img/img20.jpg");
+    padding-top: 7%;
+    background-size: cover;
+    
+}
+
+.titulo-trabalho {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== Grade de Trabalhos ===== */
+.grade-trabalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+    
+}
+
+/* ===== Cartões de Trabalho ===== */
+.cartao-trabalho {
+    background-color: #07152ba8;    
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    
+    
+}
+
+.cartao-trabalho:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Cabeçalho do Cartão ===== */
+/* Seção de cursos/trabalho */
+.secao-trabalho {
+    padding: 50px 20px;
+    background-color: #6c7f88;
+    font-family: Arial, sans-serif;
+    
+}
+
+/* Título da seção */
+.titulo-trabalho h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    margin-top: 80px;
+    
+}
+
+.titulo-trabalho p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* Grid de cartões */
+.grade-trabalhos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Cada cartão */
+
+
+.cartao-trabalho:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Cabeçalho do cartão */
+.cabecalho-trabalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+/* Título do cartão */
+.cartao-trabalho h3 {
+    margin: 0;
+    color: #6c77d8;
+    font-size: 20px;
+}
+
+/* Descrição do cartão */
+.descricao-trabalho {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Banner abaixo dos cartões */
+.banner-cursos {
+    margin-top: 50px;
+    padding: 40px 20px; /* padding vertical + pequeno horizontal */
+    width: 100%; /* ocupa toda a largura */
+    box-sizing: border-box; /* inclui padding na largura total */
+    background: linear-gradient(135deg, #050d3300, #233abd00);
+    color: #fff;
+    text-align: center;
+    
+    margin-left: -8px;
+    margin-top: 100px;
+}
+
+.banner-cursos h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.banner-cursos p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.btn-banner {
+    display: inline-block;
+    background-color: #fff;
+    color: #007bff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    
+    
+}
+
+.btn-banner:hover {
+    background-color: #d64343;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+/* Seção de contatos */
+.contatos {
+    padding: 150px;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.747),   /* camada escura por cima */
+      rgba(0, 0, 0, 0.808)
+    ), url("./img/img7.jpg");
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    
+    
+}
+
+/* Cabeçalho */
+.contatos-header h1 {
+    text-align: center;
+    margin-bottom: 100px;
+    color: #ffffff;
+    font-size:80px;
+    
+}
+
+/* Grid de contatos */
+.contatos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Cada cartão de contato */
+.contato {
+    background-color: #11152c9d;
+    border: 1px solid #ccc;
+    
+    padding: 15px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contato h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.contato p {
+    margin: 5px 0;
+    color: #ffffff;
 }
